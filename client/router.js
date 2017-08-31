@@ -2,4 +2,7 @@ Router.configure({
   layoutTemplate: 'franklinTemplate'
 });
 
-Router.route('/', {name: 'goodnessList'});
+Router.map(function() {
+  this.route('/', {name: 'goodnessList'});
+  this.route('/create', {name: 'inputForm'});
+});
