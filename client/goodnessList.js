@@ -1,10 +1,10 @@
 Template.goodnessList.helpers({
-  'goodnessList': function() {
+  goodnessList: function() {
     return Goodness.find({}, {sort: {date:-1}});
   },
-  'getProgress': function(id) {
+  getProgress: function(id) {
     var maxCount = Goodness.findOne(id).maxCount;
-    var currentDay = moment().format('DD-MM-YYYY');
+    var currentDay = getCurrentDay();
     var counterDocument = Counters.findOne({goodnessId: id, date: currentDay});
     if (counterDocument) {
       return 100 - (counterDocument.counter / maxCount) * 100;
@@ -19,7 +19,7 @@ Template.goodnessList.onCreated(function() {
 
 Template.goodnessList.events({
   'click .js-count-increment': function() {
-    var currentDay = moment().format('DD-MM-YYYY');
+    var currentDay = getCurrentDay();
     var counterDocument = Counters.findOne({goodnessId: this._id, date: currentDay});
     var maxCount = 0;
     if (counterDocument) {
