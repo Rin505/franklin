@@ -3,6 +3,10 @@ Template.inputForm.onCreated(function() {
 });
 Template.inputForm.events({
   'click .js-submit': function() {
-    console.log('It works!');
+    var text = $('.js-text').val()
+    if (text.length > 0) {
+      Goodness.insert({title: text, date: new Date});
+      Router.go('goodnessList');
+    }
   }
 });
