@@ -1,3 +1,4 @@
+Goodness = new Ground.Collection('goodness', {connection: null});
 setHeader = function(header) {
   Session.set('headerData', header);
 };
