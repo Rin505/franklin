@@ -1,6 +1,16 @@
 Template.goodnessList.helpers({
   'goodnessList': function() {
     return Goodness.find({}, {sort: {date:-1}});
+  },
+  'getProgress': function(id) {
+    var maxCount = Goodness.findOne(id).maxCount;
+    var currentDay = moment().format('DD-MM-YYYY');
+    var counterDocument = Counters.findOne({goodnessId: id, date: currentDay});
+    if (counterDocument) {
+      return 100 - (counterDocument.counter / maxCount) * 100;
+    } else {
+      return 100;
+    }
   }
 });
 Template.goodnessList.onCreated(function() {
