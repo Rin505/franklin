@@ -5,4 +5,5 @@ Router.configure({
 Router.map(function() {
   this.route('/', {name: 'goodnessList'});
   this.route('/create', {name: 'inputForm'});
+  this.route('/detail', {name: 'goodnessDetail'});
 });
