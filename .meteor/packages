@@ -25,3 +25,4 @@ iron:router
 session
 ground:db
 momentjs:moment
+rzymek:moment-locale-ru

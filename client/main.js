@@ -11,6 +11,10 @@ getHeader = function() {
 getCurrentDay = function() {
   return moment().startOf("day").toDate();
 };
+franklinDate = function(date) {
+  var calendar = moment(date).locale('ru').calendar();
+  return calendar.split(" в ")[0];
+};
 
 initDbData = function() {
   var goodnessArray = ["Быть уверенным в себе", "Быть сдержанным", "Обходиться без сигарет", "Обходиться без мата в речи"];
