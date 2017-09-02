@@ -1,15 +1,20 @@
 Template.goodnessDetail.helpers({
   getCounters: function() {
     var values = [];
-    var maxCount = Goodness.findOne(Router.current().params._id).maxCount;
-    Counters.find({goodnessId: Router.current().params._id}, {sort: {date: -1}}).map(function(item) {
-      var counterDocument = item;
+    var currentGoodness = Goodness.findOne(Router.current().params._id);
+    var maxCount = currentGoodness.maxCount;
+
+    var daysDifference = moment().diff(moment(currentGoodness.date), 'day');
+
+    for (var i = 0; i <= daysDifference; i++) {
+      var currentDate = moment(currentGoodness.date).add(i, 'day').startOf('day').toDate();
+      var counterDocument = Counters.findOne({goodnessId: Router.current().params._id, date: currentDate});
       if (counterDocument) {
-        values.push({value: (100 - (counterDocument.counter / maxCount) * 100), date: franklinDate(item.date)});
+        values.unshift({counter: counterDocument.counter, value: (100 - (counterDocument.counter / maxCount) * 100), date: franklinDate(currentDate)});
       } else {
-        values.push({value: 100, date: franklinDate(item.date)});
+        values.unshift({counter: 0, value: 100, date: franklinDate(currentDate)});
       }
-    });
+    };
     return values;
   }
 });
