@@ -1,36 +1,38 @@
 <template name="inputForm">
-  <p>В приложении под добродетелью понимается хорошее качество личности, которое хотелось бы Вам в себе развить. Например - Обходиться без мата. После добавления желаемой добродетели в приложение, фиксируйте каждое нарушение. При этом старайтесь свести количество нарушений каждой из добродетелей к минимуму.</p>
-  <div class="row">
+  <div class="fadeIn animated">
+    <p>В приложении под добродетелью понимается хорошее качество личности, которое хотелось бы Вам в себе развить. Например - Обходиться без мата. После добавления желаемой добродетели в приложение, фиксируйте каждое нарушение. При этом старайтесь свести количество нарушений каждой из добродетелей к минимуму.</p>
     <div class="row">
-      <div class="input-field col s12 center-align">
-        <h5>Аватар благодетели:</h5>
-        {{#unless needShowImage}}
-        <div>
-          <a class="btn-floating btn-large waves-effect waves-light grey lighten-5 js-take-photo">
-            <i class="material-icons grey-text text-darken-4">photo_camera</i>
-          </a>
+      <div class="row">
+        <div class="input-field col s12 center-align">
+          <h5>Аватар благодетели:</h5>
+          {{#unless needShowImage}}
+          <div>
+            <a class="btn-floating btn-large waves-effect waves-light grey lighten-5 js-take-photo">
+              <i class="material-icons grey-text text-darken-4">photo_camera</i>
+            </a>
+          </div>
+          {{else}}
+          <div>
+            <img src="{{getPicture}}" class="responsive-img"/>
+          </div>
+          <div>
+            <a class="btn-floating btn-large waves-effect waves-light grey lighten-5 js-remove-photo">
+              <i class="material-icons grey-text text-darken-4">delete</i>
+            </a>
+          </div>
+          {{/unless}}
+          <p class="left-align">Добавьте любое изображение, которое, на Ваш взгляд, ассоциируется с данной добродетелью.</p>
         </div>
-        {{else}}
-        <div>
-          <img src="{{getPicture}}" class="responsive-img"/>
+        <div>&nbsp;</div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">assignment</i>
+          <input id="icon_prefix" type="text" class="validate js-text">
+          <label for="icon_prefix">Введите текст</label>
+          <p>Старайтесь избегать частицы "НЕ" в описании добродетели.</p>
         </div>
-        <div>
-          <a class="btn-floating btn-large waves-effect waves-light grey lighten-5 js-remove-photo">
-            <i class="material-icons grey-text text-darken-4">delete</i>
-          </a>
+        <div class="input-field col s12 center-align">
+          <a class="waves-effect waves-light btn-large js-submit">Добавить</a>
         </div>
-        {{/unless}}
-        <p class="left-align">Добавьте любое изображение, которое, на Ваш взгляд, ассоциируется с данной добродетелью.</p>
-      </div>
-      <div>&nbsp;</div>
-      <div class="input-field col s12">
-        <i class="material-icons prefix">assignment</i>
-        <input id="icon_prefix" type="text" class="validate js-text">
-        <label for="icon_prefix">Введите текст</label>
-        <p>Старайтесь избегать частицы "НЕ" в описании добродетели.</p>
-      </div>
-      <div class="input-field col s12 center-align">
-        <a class="waves-effect waves-light btn-large js-submit">Добавить</a>
       </div>
     </div>
   </div>
