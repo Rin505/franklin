@@ -20,7 +20,8 @@ initDbData = function() {
   var goodnessArray = ["Быть уверенным в себе", "Быть сдержанным", "Обходиться без сигарет", "Обходиться без мата в речи"];
 
   goodnessArray.forEach(function(item, i, goodnessArray) {
-    var currentGoodnessId = Goodness.insert({title: item, maxCount: 6, date: moment().subtract(6, 'day').startOf('day').toDate()});
+    var fileName = Math.floor(Math.random() * 10 + 1) + '.jpg';
+    var currentGoodnessId = Goodness.insert({avatar: fileName, title: item, maxCount: 6, date: moment().subtract(6, 'day').startOf('day').toDate()});
     Counters.insert({date: moment().subtract(6, 'day').startOf('day').toDate(), goodnessId: currentGoodnessId, counter: 6});
     Counters.insert({date: moment().subtract(5, 'day').startOf('day').toDate(), goodnessId: currentGoodnessId, counter: 2});
     Counters.insert({date: moment().subtract(3, 'day').startOf('day').toDate(), goodnessId: currentGoodnessId, counter: 4});
