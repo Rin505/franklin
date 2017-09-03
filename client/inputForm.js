@@ -1,6 +1,6 @@
 Template.inputForm.onCreated(function() {
   this.picture = new ReactiveVar('');
-  setHeader({title: 'Создание..', isBackVisible: true})
+  setHeader({title: 'Создание', isBackVisible: true})
 });
 Template.inputForm.helpers({
   getPicture: function() {
