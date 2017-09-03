@@ -3,19 +3,19 @@
   <div class="row fadeIn animated">
     <div class="col s12 m7">
       <div class="card">
-        <div class="card-image">
-          <img src="{{avatar}}">
-        </div>
-        <div class="card-content center-align">
-          <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
-            <h5>{{title}}</h5>
-            Сегодня: {{getToday this._id}}<br>
-            Максимум: {{getMax this._id}}
-            <div class="progress">
-              <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
-            </div>
-          </a>
-        </div>
+        <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
+          <div class="card-image">
+            <img src="{{avatar}}">
+          </div>
+          <div class="card-content center-align">
+              <h5>{{title}}</h5>
+              Сегодня: {{getToday this._id}}<br>
+              Максимум: {{getMax this._id}}
+              <div class="progress">
+                <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
+              </div>
+          </div>
+        </a>
         <div class="card-action center-align">
           <a class="waves-effect waves-light btn red lighten-2 js-count-increment">Нарушил</a>
         </div>
