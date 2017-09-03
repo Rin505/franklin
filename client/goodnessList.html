@@ -3,9 +3,9 @@
   <div class="row">
     <div class="s12">
       <div class="card-panel center-align">
-        <img class="responsive-img" src="{{avatar}}"/>
-        <h5>{{title}}</h5>
         <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
+          <img class="responsive-img" src="{{avatar}}"/>
+          <h5>{{title}}</h5>
           Сегодня: {{getToday this._id}}<br>
           Максимум: {{getMax this._id}}
           <div class="progress">
