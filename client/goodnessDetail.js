@@ -1,4 +1,12 @@
 Template.goodnessDetail.helpers({
+  getTitle: function() {
+    var currentGoodness = Goodness.findOne(Router.current().params._id);
+    if (currentGoodness) {
+      return currentGoodness.title;
+    } else {
+      return "Не известно";
+    }
+  },
   getCounters: function() {
     var values = [];
     var currentGoodness = Goodness.findOne(Router.current().params._id);

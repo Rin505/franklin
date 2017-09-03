@@ -1,7 +1,7 @@
 <template name="goodnessDetail">
   <div class="row">
     <div class="col s12">
-      <h5>Уравновешенность</h5>
+      <h5>{{getTitle}}</h5>
       {{#each getCounters}}
         {{date}}&nbsp;({{counter}})
         <div class="progress">
