@@ -14,7 +14,11 @@ Template.inputForm.events({
   'click .js-submit': function() {
     var text = $('.js-text').val()
     if (text.length > 0) {
-      var fileName = Math.floor(Math.random() * 10 + 1) + '.jpg';
+      if (Template.instance().picture.get().length > 0) {
+        var fileName = Template.instance().picture.get();
+      } else {
+        var fileName = Math.floor(Math.random() * 10 + 1) + '.jpg';
+      }
       Goodness.insert({title: text, date: new Date, maxCount: 0, avatar: fileName});
       Router.go('goodnessList');
     }
