@@ -10,10 +10,11 @@ Template.goodnessDetail.helpers({
   getCounters: function() {
     var values = [];
     var currentGoodness = Goodness.findOne(Router.current().params._id);
+    if (!currentGoodness) {
+      return values;
+    }
     var maxCount = currentGoodness.maxCount;
-
     var daysDifference = moment().diff(moment(currentGoodness.date), 'day');
-
     for (var i = 0; i <= daysDifference; i++) {
       var currentDate = moment(currentGoodness.date).add(i, 'day').startOf('day').toDate();
       var counterDocument = Counters.findOne({goodnessId: Router.current().params._id, date: currentDate});
