@@ -2,6 +2,9 @@ Template.goodnessList.helpers({
   goodnessList: function() {
     return Goodness.find({}, {sort: {date:-1}});
   },
+  goodnessListCount: function() {
+    return Goodness.find({}, {sort: {date:-1}}).count();
+  },
   getProgress: function(id) {
     var maxCount = Goodness.findOne(id).maxCount;
     var currentDay = getCurrentDay();
