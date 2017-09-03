@@ -9,5 +9,24 @@ Template.inputForm.events({
       Goodness.insert({title: text, date: new Date, maxCount: 0, avatar: fileName});
       Router.go('goodnessList');
     }
+  },
+  'click .js-take-photo': function() {
+    MeteorCameraUI.getPicture(
+      {
+        width: 512,
+        height: 512,
+        quality: 100,
+        cancel: 'Отмена',
+        takeImage: 'Сделать фото',
+        imageLibrary: 'Загрузить из галереи'
+      },
+      function(error, data) {
+
+      }
+    );
+    console.log('TAKE');
+  },
+  'click .js-remove-photo': function() {
+    console.log('REMOVE');
   }
 });
