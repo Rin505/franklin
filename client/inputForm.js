@@ -5,6 +5,9 @@ Template.inputForm.onCreated(function() {
 Template.inputForm.helpers({
   getPicture: function() {
     return Template.instance().picture.get();
+  },
+  needShowImage: function() {
+    return !!Template.instance().picture.get();
   }
 });
 Template.inputForm.events({
@@ -35,6 +38,9 @@ Template.inputForm.events({
     );
   },
   'click .js-remove-photo': function() {
-    console.log('REMOVE');
+    if (!confirm('Вы уверены, что хотите удалить?')) {
+      return;
+    }
+    Template.instance().picture.set('');
   }
 });

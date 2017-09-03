@@ -2,11 +2,13 @@
   <div class="row">
     <div class="row">
       <div class="input-field col s12 center-align">
+        {{#unless needShowImage}}
         <div>
           <a class="btn-floating btn-large waves-effect waves-light grey lighten-5 js-take-photo">
             <i class="material-icons grey-text text-darken-4">photo_camera</i>
           </a>
         </div>
+        {{else}}
         <div>
           <img src="{{getPicture}}" class="responsive-img"/>
         </div>
@@ -15,6 +17,7 @@
             <i class="material-icons grey-text text-darken-4">delete</i>
           </a>
         </div>
+        {{/unless}}
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">assignment</i>
