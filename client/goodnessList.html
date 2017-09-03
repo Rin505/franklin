@@ -1,18 +1,24 @@
 <template name="goodnessList">
   {{#each goodnessList}}
   <div class="row">
-    <div class="s12">
-      <div class="card-panel center-align">
-        <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
-          <img class="responsive-img" src="{{avatar}}"/>
-          <h5>{{title}}</h5>
-          Сегодня: {{getToday this._id}}<br>
-          Максимум: {{getMax this._id}}
-          <div class="progress">
-            <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
-          </div>
-        </a>
-        <a class="waves-effect waves-light btn red lighten-2 js-count-increment">Нарушил</a><br>
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{avatar}}">
+        </div>
+        <div class="card-content center-align">
+          <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
+            <h5>{{title}}</h5>
+            Сегодня: {{getToday this._id}}<br>
+            Максимум: {{getMax this._id}}
+            <div class="progress">
+              <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
+            </div>
+          </a>
+        </div>
+        <div class="card-action center-align">
+          <a class="waves-effect waves-light btn red lighten-2 js-count-increment">Нарушил</a>
+        </div>
       </div>
     </div>
   </div>
