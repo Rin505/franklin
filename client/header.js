@@ -4,5 +4,8 @@ Template.header.helpers({
   },
   isBackVisible: function() {
     return getHeader().isBackVisible;
+  },
+  isTrashVisible: function() {
+    return getHeader().isTrashVisible;
   }
 });

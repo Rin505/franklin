@@ -19,5 +19,5 @@ Template.goodnessDetail.helpers({
   }
 });
 Template.goodnessDetail.onCreated(function() {
-  setHeader({title: 'Статистика', isBackVisible: true})
+  setHeader({title: 'Статистика', isBackVisible: true, isTrashVisible: true})
 });
