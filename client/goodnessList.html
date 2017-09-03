@@ -4,7 +4,9 @@
     <div class="s12">
       <div class="card-panel center-align">
         <h5>{{title}}</h5>
-        <a href="{{pathFor 'goodnessDetail'}}">
+        <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
+          Сегодня: {{getToday this._id}}<br>
+          Максимум: {{getMax this._id}}
           <div class="progress">
             <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
           </div>

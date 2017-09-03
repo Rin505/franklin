@@ -19,9 +19,9 @@ Template.goodnessDetail.helpers({
       var currentDate = moment(currentGoodness.date).add(i, 'day').startOf('day').toDate();
       var counterDocument = Counters.findOne({goodnessId: Router.current().params._id, date: currentDate});
       if (counterDocument) {
-        values.unshift({counter: counterDocument.counter, value: (100 - (counterDocument.counter / maxCount) * 100), date: franklinDate(currentDate)});
+        values.unshift({counter: counterDocument.counter, value: (counterDocument.counter / maxCount) * 100, date: franklinDate(currentDate)});
       } else {
-        values.unshift({counter: 0, value: 100, date: franklinDate(currentDate)});
+        values.unshift({counter: 0, value: 0, date: franklinDate(currentDate)});
       }
     };
     return values;

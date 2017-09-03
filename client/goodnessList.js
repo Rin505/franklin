@@ -7,10 +7,24 @@ Template.goodnessList.helpers({
     var currentDay = getCurrentDay();
     var counterDocument = Counters.findOne({goodnessId: id, date: currentDay});
     if (counterDocument) {
-      return 100 - (counterDocument.counter / maxCount) * 100;
+      return (counterDocument.counter / maxCount) * 100;
     } else {
-      return 100;
+      return 0;
     }
+  },
+  getToday: function(id) {
+    var maxCount = Goodness.findOne(id).maxCount;
+    var currentDay = getCurrentDay();
+    var counterDocument = Counters.findOne({goodnessId: id, date: currentDay});
+    if (counterDocument) {
+      return counterDocument.counter;
+    } else {
+      return 0;
+    }
+  },
+  getMax: function(id) {
+    var maxCount = Goodness.findOne(id).maxCount;
+    return maxCount;
   }
 });
 Template.goodnessList.onCreated(function() {
