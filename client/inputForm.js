@@ -1,5 +1,11 @@
 Template.inputForm.onCreated(function() {
+  this.picture = new ReactiveVar('');
   setHeader({title: 'Создание..', isBackVisible: true})
+});
+Template.inputForm.helpers({
+  getPicture: function() {
+    return Template.instance().picture.get();
+  }
 });
 Template.inputForm.events({
   'click .js-submit': function() {
@@ -11,6 +17,7 @@ Template.inputForm.events({
     }
   },
   'click .js-take-photo': function() {
+    var templateInstance = Template.instance();
     MeteorCameraUI.getPicture(
       {
         width: 512,
@@ -21,10 +28,11 @@ Template.inputForm.events({
         imageLibrary: 'Загрузить из галереи'
       },
       function(error, data) {
-
+        if (!error) {
+          templateInstance.picture.set(data);
+        }
       }
     );
-    console.log('TAKE');
   },
   'click .js-remove-photo': function() {
     console.log('REMOVE');
