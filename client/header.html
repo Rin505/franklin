@@ -1,17 +1,19 @@
 <template name="header">
-  <nav class="teal lighten-2">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">{{title}}</a>
-      {{#if isBackVisible}}
-        <ul id="nav-mobile" class="left">
-          <li><a href="{{pathFor 'goodnessList'}}"><i class="material-icons">keyboard_arrow_left</i></a></li>
-        </ul>
-      {{/if}}
-      {{#if isTrashVisible}}
-        <ul id="nav-mobile" class="right">
-          <li><a href="#"><i class="material-icons js-remove">delete</i></a></li>
-        </ul>
-      {{/if}}
-    </div>
-  </nav>
+  <div class="navbar-fixed">
+    <nav class="teal lighten-2">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">{{title}}</a>
+        {{#if isBackVisible}}
+          <ul id="nav-mobile" class="left">
+            <li><a href="{{pathFor 'goodnessList'}}"><i class="material-icons">keyboard_arrow_left</i></a></li>
+          </ul>
+        {{/if}}
+        {{#if isTrashVisible}}
+          <ul id="nav-mobile" class="right">
+            <li><a href="#"><i class="material-icons js-remove">delete</i></a></li>
+          </ul>
+        {{/if}}
+      </div>
+    </nav>
+  </div>
 </template>
