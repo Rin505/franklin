@@ -1,3 +1,4 @@
 .franklin-bg {
   background: url('/franklin-bg.jpg') repeat;
+  background-attachment: fixed;
 }
