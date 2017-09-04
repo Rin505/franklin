@@ -35,7 +35,7 @@ Template.inputForm.events({
         imageLibrary: 'Загрузить из галереи'
       },
       function(error, data) {
-        if (!error) {
+        if (!error && data) {
           templateInstance.picture.set(data);
         }
       }
