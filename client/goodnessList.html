@@ -7,29 +7,31 @@
       После добавления желаемой добродетели в приложение, фиксируйте каждое нарушение. При этом старайтесь свести количество нарушений каждой из добродетелей к минимуму.
     </p>
   {{else}}
-    {{#each goodnessList}}
-    <div class="row fadeIn animated">
-      <div class="col s12 m7">
-        <div class="card">
-          <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
-            <div class="card-image">
-              <img src="{{avatar}}">
+    <div class="franklin-bg">
+      {{#each goodnessList}}
+      <div class="row fadeIn animated">
+        <div class="col s12 m7">
+          <div class="card">
+            <a href="{{pathFor 'goodnessDetail'}}" class="grey-text text-darken-4">
+              <div class="card-image">
+                <img src="{{avatar}}">
+              </div>
+              <div class="card-content center-align">
+                  <h5>{{title}}</h5>
+                  Сегодня: {{getToday this._id}}<br>
+                  Максимум: {{getMax this._id}}
+                  <div class="progress">
+                    <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
+                  </div>
+              </div>
+            </a>
+            <div class="card-action center-align">
+              <a class="waves-effect waves-light btn red lighten-2 js-count-increment">Нарушил</a>
             </div>
-            <div class="card-content center-align">
-                <h5>{{title}}</h5>
-                Сегодня: {{getToday this._id}}<br>
-                Максимум: {{getMax this._id}}
-                <div class="progress">
-                  <div class="determinate red darken-2" style="width: {{getProgress this._id}}%"></div>
-                </div>
-            </div>
-          </a>
-          <div class="card-action center-align">
-            <a class="waves-effect waves-light btn red lighten-2 js-count-increment">Нарушил</a>
           </div>
         </div>
       </div>
+      {{/each}}
     </div>
-    {{/each}}
   {{/unless}}
 </template>
