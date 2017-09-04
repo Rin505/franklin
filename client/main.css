@@ -1,4 +1,10 @@
-.franklin-bg {
+.franklin-bg::before {
+  content: "";
   background: url('/franklin-bg.jpg') repeat;
   background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
