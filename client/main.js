@@ -34,3 +34,10 @@ initDbData = function() {
     Counters.insert({date: moment().subtract(2, 'day').startOf('day').toDate(), goodnessId: currentGoodnessId, counter: 3});
   });
 };
+Template.registerHelper( 'getIosClass', () => {
+  if (Meteor.isCordova) {
+    return device.platform;
+  } else {
+    return '';
+  }
+});

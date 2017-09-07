@@ -44,6 +44,6 @@ App.launchScreens({
   "android_xxhdpi_landscape": "resources/splashes/android_xxhdpi_landscape.png" // 1440x1080
 });
 
-App.setPreference('StatusBarOverlaysWebView', 'false');
+App.setPreference('StatusBarOverlaysWebView', 'true');
 App.setPreference('StatusBarStyle', 'lightcontent');
 App.setPreference('StatusBarBackgroundColor', '#26a69a');
